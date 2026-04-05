@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --surface-0: #f8f9fb;
+    --surface-1: #ffffff;
+    --surface-2: #f0f1f5;
+    --surface-3: #e4e6ed;
+    --surface-4: #d8dae3;
+    --line: #d8dae3;
+    --line-hover: #c4c7d4;
+    --line-active: #b0b4c4;
+    --content-1: #111318;
+    --content-2: #5c5e70;
+    --content-3: #9395a5;
+    --scrollbar-thumb: #d8dae3;
+    --scrollbar-hover: #c4c7d4;
+    --selection-bg: rgba(59, 130, 246, 0.15);
+    --grid-line: rgba(210, 213, 225, 0.4);
+  }
+
+  .dark {
+    --surface-0: #06070b;
+    --surface-1: #0c0d14;
+    --surface-2: #12131c;
+    --surface-3: #181a25;
+    --surface-4: #1e2030;
+    --line: #1e2035;
+    --line-hover: #2a2d45;
+    --line-active: #363a52;
+    --content-1: #eaebf2;
+    --content-2: #9395a5;
+    --content-3: #5c5e70;
+    --scrollbar-thumb: #1e2035;
+    --scrollbar-hover: #2a2d45;
+    --selection-bg: rgba(59, 130, 246, 0.25);
+    --grid-line: rgba(30, 32, 53, 0.3);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--surface-0);
+  color: var(--content-1);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-hover);
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--content-1);
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@layer utilities {
+  .bg-grid {
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .robot-container {
+    transform: scale(0.7);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
